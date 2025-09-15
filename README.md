@@ -52,29 +52,41 @@ The default configuration provides:
 import STTextView
 import STPluginMarkdown
 
-// Create custom fonts
-let customFonts = MarkdownFonts(
-    body: PlatformFont.systemFont(ofSize: 14),
-    heading1: PlatformFont.boldSystemFont(ofSize: 28),
-    heading2: PlatformFont.boldSystemFont(ofSize: 24),
-    code: PlatformFont.monospacedSystemFont(ofSize: 12, weight: .regular)
-)
-
-// Create custom colors
-let customColors = MarkdownColors(
-    text: PlatformColor.labelColor,
-    heading: PlatformColor.systemBlue,
-    code: PlatformColor.systemRed,
-    link: PlatformColor.systemBlue
-)
-
-// Create configuration
-let config = MarkdownConfiguration(
-    fonts: customFonts,
-    colors: customColors
+// Create custom styles for different elements
+let customConfig = MarkdownConfiguration(
+    body: MarkdownStyle(
+        font: PlatformFont.systemFont(ofSize: 14),
+        color: PlatformColor.labelColor
+    ),
+    heading1: MarkdownStyle(
+        font: PlatformFont.boldSystemFont(ofSize: 32),
+        color: PlatformColor.headingColor
+    ),
+    code: MarkdownStyle(
+        font: PlatformFont.monospacedSystemFont(ofSize: 12, weight: .regular),
+        color: PlatformColor.codeColor
+    ),
+    link: MarkdownStyle(
+        font: PlatformFont.systemFont(ofSize: 14),
+        color: PlatformColor.linkColor
+    )
+    // ... other styles use defaults
 )
 
 // Add plugin with custom configuration
+textView.addMarkdownPlugin(configuration: customConfig)
+```
+
+Or customize individual styles:
+
+```swift
+// Just customize heading style
+let config = MarkdownConfiguration(
+    heading1: MarkdownStyle(
+        font: PlatformFont.boldSystemFont(ofSize: 32),
+        color: .systemRed
+    )
+)
 textView.addMarkdownPlugin(configuration: config)
 ```
 
