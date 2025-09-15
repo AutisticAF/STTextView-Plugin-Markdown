@@ -32,38 +32,6 @@ public struct PlatformColor {
         }
     }
 
-    public static var secondaryLabelColor: NSColor {
-        if #available(macOS 10.14, *) {
-            return NSColor.secondaryLabelColor
-        } else {
-            return NSColor.disabledControlTextColor
-        }
-    }
-
-    public static var quaternarySystemFill: NSColor {
-        if #available(macOS 10.14, *) {
-            return NSColor.quaternarySystemFill
-        } else {
-            return NSColor.controlBackgroundColor
-        }
-    }
-
-    public static var systemRed: NSColor {
-        if #available(macOS 10.14, *) {
-            return NSColor.systemRed
-        } else {
-            return NSColor.red
-        }
-    }
-
-    public static var systemBlue: NSColor {
-        if #available(macOS 10.14, *) {
-            return NSColor.systemBlue
-        } else {
-            return NSColor.blue
-        }
-    }
-
     // MARK: - Semantic Colors for Markdown
 
     public static var headingColor: NSColor {
@@ -135,30 +103,6 @@ public struct PlatformColor {
         } else {
             return UIColor.black
         }
-    }
-
-    public static var secondaryLabelColor: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.secondaryLabel
-        } else {
-            return UIColor.gray
-        }
-    }
-
-    public static var quaternarySystemFill: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.quaternarySystemFill
-        } else {
-            return UIColor.systemGray6
-        }
-    }
-
-    public static var systemRed: UIColor {
-        return UIColor.systemRed
-    }
-
-    public static var systemBlue: UIColor {
-        return UIColor.systemBlue
     }
 
     // MARK: - Semantic Colors for Markdown
